@@ -35,6 +35,7 @@ public class GamePlayEvents : MonoBehaviour
     public void SetEventCompleted(int eventIndex)
     {
         EventScriptable ToModify = events.Find(x => x.EventIndex == eventIndex);
+        FindObjectOfType<SoundController>().PlayDiscover();
         ToModify.Completed =true;
     }
 

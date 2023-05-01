@@ -19,7 +19,9 @@ public class Player : MonoBehaviour
     public void GoToSlider()
     {
         moveSequence = DOTween.Sequence();
-        moveSequence.Append(transform.DOMoveZ(-8f, 1f)).Append(transform.DORotate(new Vector3(20, this.transform.rotation.y, this.transform.rotation.z), 0.5f,RotateMode.LocalAxisAdd)).SetAutoKill(false);
+        this.transform.rotation = new Quaternion(0,180,0,0);
+        //this.transform.DORotate(new Vector3(0, transform.localRotation.y-180, 0), 0, RotateMode.LocalAxisAdd);
+        moveSequence.Append(transform.DOMoveZ(-8.5f, 1f)).Append(transform.DORotate(new Vector3(40, this.transform.rotation.y, this.transform.rotation.z), 0.5f,RotateMode.LocalAxisAdd)).SetAutoKill(false);
         
     }
 

@@ -9,8 +9,10 @@ public class SliderPiece : MonoBehaviour, IPointerClickHandler, IPointerDownHand
 {
     public bool dragable = false;
     [SerializeField] private float dragSpeed =1;
-    [SerializeField] private int currentSlot;
+    public int currentSlot;
     static private SliderPiece currentPiece = null;
+
+    public int targetPosition;
 
     private Rigidbody rb;
     private SliderParent sliderParent;
@@ -31,8 +33,8 @@ public class SliderPiece : MonoBehaviour, IPointerClickHandler, IPointerDownHand
     {
         if(dragable)
         {
-            float xMovement = Mathf.Clamp(eventData.delta.x * dragSpeed,-2f,2f);
-            float zMovement = Mathf.Clamp(eventData.delta.y * dragSpeed, -2f, 2f);
+            float xMovement = -Mathf.Clamp(eventData.delta.x * dragSpeed,-2f,2f);
+            float zMovement = -Mathf.Clamp(eventData.delta.y * dragSpeed, -2f, 2f);
 
             //this.transform.localPosition += new Vector3(xMovement,0,zMovement);
 
@@ -103,10 +105,16 @@ public class SliderPiece : MonoBehaviour, IPointerClickHandler, IPointerDownHand
             int aux = sliderParent.currentEmpty;
             sliderParent.currentEmpty = currentSlot;
             currentSlot = aux;
+            FindObjectOfType<SliderParent>().SliderIsSolved();
         }
         else
         {
             this.transform.position = initial.position;
         }
+    }
+
+    public void SetCurrentSlot(int slot)
+    {
+        currentSlot= slot;
     }
 }

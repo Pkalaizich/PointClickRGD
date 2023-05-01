@@ -120,6 +120,7 @@ public class UIController : MonoBehaviour
         inspectButton.onClick.AddListener(()=> {
             GamePlayEvents.Instance.SetEventCompleted(eventIndex);            
         });
+        //FindObjectOfType<SoundController>().PlayDiscover();
     }
 
     public void AddAnAction(Action action)

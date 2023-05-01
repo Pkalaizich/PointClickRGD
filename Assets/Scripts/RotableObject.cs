@@ -24,7 +24,7 @@ public class RotableObject : MonoBehaviour
         UIController.Instance.AddListenerCompletedEventToInspect(eventToComplete.EventIndex);
         if(GamePlayEvents.Instance.RequiredEvents(requiredEvents))
         {
-            UIController.Instance.AddListenerMessageToInspect(requiredEventsMet);
+            UIController.Instance.AddListenerMessageToInspect(requiredEventsMet);            
         }
         else
         {
