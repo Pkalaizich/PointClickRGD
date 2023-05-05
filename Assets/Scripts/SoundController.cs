@@ -20,6 +20,7 @@ public class SoundController : MonoBehaviour
     private void Start()
     {
         lastTimeAliensSound = Time.time;
+        MakeSoundFade(1);
     }
 
     private void Update()
@@ -42,6 +43,28 @@ public class SoundController : MonoBehaviour
     {
         oneShotSource.time = 3.25f;
         oneShotSource.PlayOneShot(discoverClip);        
+    }
+
+    public void MakeSoundFade(float duration)
+    {
+        StartCoroutine(FadeSound(duration));
+    }
+
+    
+
+    private IEnumerator FadeSound(float duration)
+    {
+        float multiplier = 1f;
+        if(duration<0)
+        {
+            multiplier = -1f;
+        }
+        for(int i=0; i<20;i++)
+        {
+            backgroundMusic.volume += 1.0f / 20f * multiplier;
+            yield return new WaitForSeconds(duration / 20 * multiplier);
+        }
+        //yield return new WaitForSeconds(0);
     }
 
 }
