@@ -54,6 +54,20 @@ public class SoundController : MonoBehaviour
         oneShotSource.PlayOneShot(sliderPiece);
     }
 
+    public void ChangeMusicToWin()
+    {
+        StartCoroutine(WinChange());
+    }
+
+    private IEnumerator WinChange()
+    {
+        MakeSoundFade(-1);
+        yield return new WaitForSeconds(1f);
+        backgroundMusic.clip= winLoop;
+        backgroundMusic.Play();
+        MakeSoundFade(1);
+    }
+
     public void MakeSoundFade(float duration)
     {
         StartCoroutine(FadeSound(duration));

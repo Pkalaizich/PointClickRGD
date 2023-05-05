@@ -15,6 +15,7 @@ public class ExitDoors : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if(GamePlayEvents.Instance.RequiredEvents(requiredEvents))
         {
+            FindObjectOfType<SoundController>().ChangeMusicToWin();
             winPanel.SetActive(true);
         }
         else

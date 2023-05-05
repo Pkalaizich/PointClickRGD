@@ -827,7 +827,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1ea6553f78ec6044094f4fe099e6992c, type: 3}
   - {fileID: 8300000, guid: 71a38560abacdb845a35defe91197276, type: 3}
   discoverClip: {fileID: 8300000, guid: db63fe058bd2b8e4996e2be9d92f6055, type: 3}
-  winLoop: {fileID: 0}
+  winLoop: {fileID: 8300000, guid: 7d37bd589918ab643ae87f0bbe88c04e, type: 3}
   timeToPlayAliens: 60
   sliderPiece: {fileID: 8300000, guid: 620c02668756b40428da4f87d97df4b6, type: 3}
   selection: {fileID: 8300000, guid: 9c4ed8fff1e327c4eac3a5a2fe40be88, type: 3}
