@@ -14,10 +14,14 @@ public class RotableObject : MonoBehaviour
 
     [SerializeField] private List<EventScriptable> requiredEvents;
     [SerializeField] private EventScriptable eventToComplete;
+
+    private AudioSource source;
     
 
     private void OnEnable()
     {
+        source = GetComponent<AudioSource>();
+        source.Play();
         itemCamera = FindObjectOfType<ItemCamera>();
         //rayCastCamera = itemCamera.GetComponent<Camera>();
         StartCoroutine(ContinuousCheck());

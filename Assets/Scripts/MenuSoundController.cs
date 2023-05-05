@@ -6,6 +6,10 @@ public class MenuSoundController : MonoBehaviour
 {
     [SerializeField] private AudioSource backgroundMusic;
 
+    [SerializeField] private AudioSource sfx;
+
+    [SerializeField] private AudioClip selection;
+
     private void Start()
     {
         MakeSoundFade(1);
@@ -16,7 +20,10 @@ public class MenuSoundController : MonoBehaviour
         StartCoroutine(FadeSound(duration));
     }
 
-
+    public void PlaySelection()
+    {
+        sfx.PlayOneShot(selection);
+    }
 
     private IEnumerator FadeSound(float duration)
     {

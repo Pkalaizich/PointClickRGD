@@ -61,6 +61,7 @@ public class SliderPiece : MonoBehaviour, IPointerClickHandler, IPointerDownHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        FindObjectOfType<SoundController>().PlaySlider();
         currentPiece = this;
         dragable = true;
         outline.eraseRenderer = true;
@@ -87,7 +88,8 @@ public class SliderPiece : MonoBehaviour, IPointerClickHandler, IPointerDownHand
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        dragable= false;
+        FindObjectOfType<SoundController>().PlaySlider();
+        dragable = false;
         currentPiece = null;
 
         rb.constraints = RigidbodyConstraints.FreezeAll;

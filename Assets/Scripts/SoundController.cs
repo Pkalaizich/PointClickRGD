@@ -15,6 +15,10 @@ public class SoundController : MonoBehaviour
 
     [SerializeField] private float timeToPlayAliens;
 
+    [SerializeField] private AudioClip sliderPiece;
+
+    [SerializeField] private AudioClip selection;
+
     private float lastTimeAliensSound;
 
     private void Start()
@@ -41,8 +45,13 @@ public class SoundController : MonoBehaviour
 
     public void PlayDiscover()
     {
-        oneShotSource.time = 3.25f;
+        //oneShotSource.time = 3.25f;
         oneShotSource.PlayOneShot(discoverClip);        
+    }
+
+    public void PlaySlider()
+    {
+        oneShotSource.PlayOneShot(sliderPiece);
     }
 
     public void MakeSoundFade(float duration)
@@ -50,7 +59,10 @@ public class SoundController : MonoBehaviour
         StartCoroutine(FadeSound(duration));
     }
 
-    
+    public void PlaySelection()
+    {
+        oneShotSource.PlayOneShot(selection);
+    }
 
     private IEnumerator FadeSound(float duration)
     {
